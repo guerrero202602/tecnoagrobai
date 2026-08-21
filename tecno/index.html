@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tecno Bai — Notebooks elegidas con criterio</title>
+<meta name="description" content="Contanos para qué la necesitás y te decimos cuál comprar. Notebooks y equipos con asesoramiento real, garantía y envío a todo el país.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='none' stroke='%237C5CFF' stroke-width='10'/></svg>">
+<style>
+/* ============================================================
+   Tecno Bai — sistema visual
+   ============================================================ */
+:root{
+  --bg:#07080B;
+  --bg-2:#0B0D12;
+  --card:#11141B;
+  --card-2:#161A23;
+  --line:#1E2331;
+  --line-2:#2A3142;
+  --txt:#EEF1F6;
+  --mut:#8B94A8;
+  --mut-2:#5F677A;
+  --a1:#7C5CFF;
+  --a2:#22D3EE;
+  --ok:#34D399;
+  --warn:#FBBF24;
+  --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+  --max:1200px;
+  --shadow:0 24px 70px -20px rgba(0,0,0,.85);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--txt);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.no-scroll{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none}
+img,svg{display:block;max-width:100%}
+/* fotos reales de producto: se adaptan solas al espacio, sin deformarse */
+.pimg{width:100%;height:100%;object-fit:contain;transition:transform .45s cubic-bezier(.2,.8,.25,1)}
+.ph .pimg{padding:16px}
+.thumb .pimg{padding:4px}
+::selection{background:rgba(124,92,255,.35)}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:20px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:#3A4459}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.grad{background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- glow de fondo ---------- */
+.glow{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0;opacity:.5}
+.glow.g1{width:620px;height:620px;background:radial-gradient(circle,rgba(124,92,255,.45),transparent 65%);top:-260px;left:-140px}
+.glow.g2{width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,238,.28),transparent 65%);top:80px;right:-200px}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+main,header,footer{position:relative;z-index:2}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+header{
+  position:sticky;top:0;z-index:60;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  background:rgba(7,8,11,.72);
+  border-bottom:1px solid transparent;transition:border-color .3s, background .3s;
+}
+header.stuck{border-bottom-color:var(--line);background:rgba(7,8,11,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:19px}
+.logo .mark{width:26px;height:26px;flex:none}
+.nav-links{display:flex;gap:30px;font-size:14.5px;color:var(--mut);font-weight:500}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--txt)}
+.nav-act{display:flex;align-items:center;gap:10px}
+.cart-btn{
+  display:flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line-2);font-size:14px;font-weight:600;
+  background:rgba(255,255,255,.03);transition:.2s;
+}
+.cart-btn:hover{border-color:var(--a1);background:rgba(124,92,255,.1)}
+.cart-count{
+  min-width:20px;height:20px;padding:0 6px;border-radius:999px;
+  background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;
+  font-size:11.5px;font-weight:800;display:grid;place-items:center;
+}
+
+/* ============================================================
+   HERO / ASESOR
+   ============================================================ */
+.hero{padding:70px 0 40px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 15px;border-radius:999px;
+  border:1px solid var(--line-2);background:rgba(255,255,255,.03);
+  font-size:12.5px;font-weight:600;color:var(--mut);letter-spacing:.02em;margin-bottom:26px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(52,211,153,.16)}
+h1{
+  font-size:clamp(34px,6.2vw,66px);line-height:1.04;letter-spacing:-.035em;font-weight:800;
+  max-width:16ch;margin:0 auto 22px;
+}
+.sub{color:var(--mut);font-size:clamp(15.5px,2vw,19px);max-width:56ch;margin:0 auto 40px;font-weight:400}
+
+/* consola del asesor */
+.console{
+  max-width:860px;margin:0 auto;border-radius:var(--r-xl);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  border:1px solid var(--line-2);box-shadow:var(--shadow);overflow:hidden;text-align:left;
+}
+.console-top{
+  display:flex;align-items:center;gap:11px;padding:14px 20px;
+  border-bottom:1px solid var(--line);background:rgba(0,0,0,.25);
+}
+.console-top .avatar{
+  width:28px;height:28px;border-radius:9px;flex:none;
+  background:linear-gradient(135deg,var(--a1),var(--a2));display:grid;place-items:center;
+  font-size:13px;font-weight:800;color:#07080B;
+}
+.console-top .meta{font-size:13.5px;font-weight:600}
+.console-top .meta span{display:block;font-size:11.5px;color:var(--mut-2);font-weight:400}
+.console-top .live{margin-left:auto;font-size:11.5px;color:var(--ok);display:flex;align-items:center;gap:6px}
+.console-top .live i{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.chat{max-height:min(56vh,520px);overflow-y:auto;padding:24px 20px 8px;scroll-behavior:smooth}
+.chat.empty{padding-bottom:20px}
+.msg{display:flex;gap:12px;margin-bottom:20px;animation:up .45s cubic-bezier(.2,.8,.25,1) both}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.msg .ava{
+  width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;
+  font-size:12px;font-weight:800;
+}
+.msg.bot .ava{background:linear-gradient(135deg,var(--a1),var(--a2));color:#07080B}
+.msg.user{flex-direction:row-reverse}
+.msg.user .ava{background:var(--card-2);border:1px solid var(--line-2);color:var(--mut);font-size:9px;letter-spacing:.04em}
+.bubble{max-width:calc(100% - 54px)}
+.msg.user .bubble{
+  background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.3);
+  padding:11px 16px;border-radius:16px 16px 4px 16px;font-size:15px;
+}
+.msg.bot .bubble{font-size:15.2px;color:#DDE3EC;line-height:1.6}
+.msg.bot .bubble strong{color:#fff;font-weight:650}
+.msg.bot .bubble p+p{margin-top:10px}
+.typing{display:flex;gap:5px;padding:8px 0}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--mut);animation:bounce 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}
+.typing i:nth-child(3){animation-delay:.36s}
+@keyframes bounce{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-5px)}}
+
+/* tarjetas dentro del chat */
+.recs{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+.rec{
+  display:flex;gap:14px;padding:13px;border-radius:var(--r);
+  background:var(--card);border:1px solid var(--line);
+  transition:.25s;position:relative;overflow:hidden;
+}
+.rec:hover{border-color:var(--line-2);transform:translateX(3px)}
+.rec .thumb{width:92px;height:66px;flex:none;border-radius:9px;overflow:hidden;background:var(--bg-2)}
+.rec .info{flex:1;min-width:0}
+.rec .tit{font-size:14.5px;font-weight:650;letter-spacing:-.01em}
+.rec .why{font-size:12.8px;color:var(--mut);margin-top:3px;line-height:1.45}
+.rec .specs{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.chipx{font-size:10.8px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.05);color:var(--mut);border:1px solid var(--line);white-space:nowrap}
+.rec .side{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;flex:none;gap:8px}
+.price{font-size:16px;font-weight:750;letter-spacing:-.02em;white-space:nowrap}
+.price small{display:block;font-size:11px;color:var(--mut-2);font-weight:500;text-align:right}
+.rec-acts{display:flex;gap:6px}
+.mini{
+  font-size:12px;font-weight:600;padding:6px 11px;border-radius:8px;
+  border:1px solid var(--line-2);color:var(--mut);transition:.2s;white-space:nowrap;
+}
+.mini:hover{color:var(--txt);border-color:var(--a1)}
+.mini.solid{background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;border-color:transparent;font-weight:700}
+.mini.solid:hover{filter:brightness(1.12)}
+.pick{
+  display:inline-block;vertical-align:2px;margin-left:7px;
+  font-size:9.6px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:6px;background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;
+}
+
+/* sugerencias */
+.sugs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sug{
+  font-size:13px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line-2);color:var(--mut);background:rgba(255,255,255,.02);transition:.2s;
+}
+.sug:hover{color:var(--txt);border-color:var(--a1);background:rgba(124,92,255,.1);transform:translateY(-1px)}
+
+/* input */
+.composer{padding:14px 16px 16px;border-top:1px solid var(--line);background:rgba(0,0,0,.2)}
+.composer-in{
+  display:flex;align-items:flex-end;gap:10px;padding:8px 8px 8px 18px;border-radius:18px;
+  background:var(--card);border:1px solid var(--line-2);transition:.25s;
+}
+.composer-in:focus-within{border-color:var(--a1);box-shadow:0 0 0 4px rgba(124,92,255,.12)}
+.composer textarea{
+  flex:1;background:none;border:none;outline:none;resize:none;
+  font-size:15.5px;line-height:1.5;padding:9px 0;max-height:110px;
+}
+.composer textarea::placeholder{color:var(--mut-2)}
+.send{
+  width:40px;height:40px;flex:none;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;transition:.2s;
+}
+.send:hover{filter:brightness(1.14);transform:scale(1.04)}
+.send:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.hint{font-size:11.5px;color:var(--mut-2);margin-top:10px;text-align:center}
+
+/* tabla comparativa */
+.cmp{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.cmp table{width:100%;border-collapse:collapse;font-size:12.8px}
+.cmp th,.cmp td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.cmp th{background:rgba(255,255,255,.03);font-weight:650;font-size:12px}
+.cmp tr:last-child td{border-bottom:none}
+.cmp td:first-child{color:var(--mut);font-size:11.6px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.cmp .win{color:var(--ok);font-weight:650}
+
+/* medidor */
+.meter{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.meter-row{display:flex;align-items:center;gap:12px;font-size:13px}
+.meter-row .nm{width:38%;color:var(--mut);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--a1),var(--a2));width:0;transition:width .9s cubic-bezier(.2,.8,.25,1)}
+.meter-row .vl{font-size:11.8px;color:var(--mut);width:74px;text-align:right;flex:none}
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+section{padding:90px 0}
+.sec-head{margin-bottom:38px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+h2{font-size:clamp(26px,3.6vw,40px);letter-spacing:-.03em;font-weight:750;line-height:1.1}
+.sec-head p{color:var(--mut);font-size:15.5px;margin-top:10px;max-width:52ch}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filt{
+  font-size:13.4px;font-weight:550;padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line);color:var(--mut);transition:.2s;
+}
+.filt:hover{color:var(--txt);border-color:var(--line-2)}
+.filt.on{background:var(--txt);color:#07080B;border-color:var(--txt);font-weight:650}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px}
+.card{
+  border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);
+  overflow:hidden;transition:.3s cubic-bezier(.2,.8,.25,1);cursor:pointer;
+  display:flex;flex-direction:column;position:relative;
+}
+.card:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:var(--shadow)}
+.card .ph{height:170px;background:var(--bg-2);position:relative;overflow:hidden;display:grid;place-items:center}
+.card .ph svg{width:82%;transition:transform .45s cubic-bezier(.2,.8,.25,1)}
+.card:hover .ph svg,.card:hover .ph .pimg{transform:scale(1.06) translateY(-3px)}
+.card .body{padding:16px 17px 18px;flex:1;display:flex;flex-direction:column}
+.card .brand{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mut-2);font-weight:650}
+.card h3{font-size:16.5px;font-weight:650;letter-spacing:-.02em;margin:5px 0 9px;line-height:1.25}
+.card .ln{font-size:12.8px;color:var(--mut);line-height:1.5;margin-bottom:13px;flex:1}
+.card .foot{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:auto}
+.tag{
+  position:absolute;top:13px;left:13px;z-index:2;font-size:10px;font-weight:800;letter-spacing:.07em;
+  padding:5px 10px;border-radius:999px;text-transform:uppercase;
+  background:rgba(7,8,11,.75);backdrop-filter:blur(8px);border:1px solid var(--line-2);color:var(--txt);
+}
+.tag.hot{background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;border-color:transparent}
+.stock{font-size:11.4px;color:var(--ok);display:flex;align-items:center;gap:5px;margin-top:9px}
+.stock.low{color:var(--warn)}
+.stock i{width:5px;height:5px;border-radius:50%;background:currentColor}
+
+/* confianza */
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.tcard{padding:26px 24px;border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.035),transparent)}
+.tcard .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.3);margin-bottom:15px}
+.tcard h4{font-size:16px;font-weight:650;letter-spacing:-.015em;margin-bottom:7px}
+.tcard p{font-size:13.6px;color:var(--mut);line-height:1.55}
+
+/* cta */
+.cta{
+  border-radius:var(--r-xl);padding:56px 40px;text-align:center;
+  background:linear-gradient(140deg,rgba(124,92,255,.16),rgba(34,211,238,.08));
+  border:1px solid var(--line-2);position:relative;overflow:hidden;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;
+  background:linear-gradient(100deg,var(--a1),var(--a2));color:#07080B;font-weight:700;font-size:15px;
+  transition:.25s;
+}
+.btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.btn.ghost{background:none;border:1px solid var(--line-2);color:var(--txt)}
+.btn.ghost:hover{border-color:var(--a1);background:rgba(124,92,255,.1)}
+
+/* datos de contacto */
+.contacto{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}
+.ccard{
+  padding:24px 24px 22px;border-radius:var(--r-lg);border:1px solid var(--line);
+  background:var(--card);display:flex;flex-direction:column;gap:4px;
+}
+.ccard .ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.3);margin-bottom:13px}
+.ccard .k{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut-2);font-weight:700}
+.ccard .v{font-size:15px;font-weight:600;letter-spacing:-.01em;margin-top:5px;line-height:1.45}
+.ccard .s{font-size:13.4px;color:var(--mut);margin-top:4px;line-height:1.5}
+.ccard a.lnk{font-size:13.2px;color:var(--a2);margin-top:11px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.ccard a.lnk:hover{text-decoration:underline}
+
+footer{border-top:1px solid var(--line);padding:44px 0 40px;color:var(--mut-2);font-size:13.4px}
+.foot-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:center}
+.foot-links{display:flex;gap:22px}
+.foot-links a:hover{color:var(--txt)}
+
+/* ============================================================
+   CARRITO
+   ============================================================ */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);z-index:90;
+  background:var(--bg-2);border-left:1px solid var(--line);
+  transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.8,.25,1);
+  display:flex;flex-direction:column;
+}
+.drawer.on{transform:none}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+.drawer-top h3{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.x{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line-2);color:var(--mut);transition:.2s}
+.x:hover{color:var(--txt);border-color:var(--a1)}
+.drawer-body{flex:1;overflow-y:auto;padding:18px 22px}
+.ci{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line)}
+.ci .thumb{width:66px;height:50px;border-radius:9px;overflow:hidden;flex:none;background:var(--card)}
+.ci .nm{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.ci .pr{font-size:13px;color:var(--mut);margin-top:3px}
+.qty{display:flex;align-items:center;gap:9px;margin-top:8px}
+.qty button{width:24px;height:24px;border-radius:7px;border:1px solid var(--line-2);color:var(--mut);display:grid;place-items:center;font-size:14px;line-height:1;transition:.2s}
+.qty button:hover{color:var(--txt);border-color:var(--a1)}
+.qty span{font-size:13px;min-width:16px;text-align:center;font-weight:600}
+.rm{margin-left:auto;font-size:11.6px;color:var(--mut-2);align-self:flex-start}
+.rm:hover{color:#F87171}
+.empty-cart{text-align:center;padding:60px 20px;color:var(--mut-2);font-size:14px}
+.drawer-foot{padding:20px 22px 24px;border-top:1px solid var(--line);background:rgba(0,0,0,.25)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;font-size:14px;color:var(--mut)}
+.tot.big{font-size:22px;font-weight:750;color:var(--txt);letter-spacing:-.02em;margin-bottom:16px}
+.wsp{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px;border-radius:14px;
+  background:#25D366;color:#062b13;font-weight:750;font-size:15.5px;transition:.2s;
+}
+.wsp:hover{filter:brightness(1.08)}
+.pay-note{font-size:11.6px;color:var(--mut-2);text-align:center;margin-top:11px;line-height:1.5}
+
+/* ============================================================
+   MODAL PRODUCTO
+   ============================================================ */
+.modal{
+  position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal.on{opacity:1;pointer-events:auto}
+.modal-in{
+  width:min(880px,100%);max-height:88vh;overflow-y:auto;border-radius:var(--r-xl);
+  background:var(--bg-2);border:1px solid var(--line-2);box-shadow:var(--shadow);
+  transform:scale(.96) translateY(10px);transition:transform .35s cubic-bezier(.2,.8,.25,1);
+}
+.modal.on .modal-in{transform:none}
+.m-hero{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.m-img{background:var(--card);display:flex;flex-direction:column;gap:12px;padding:30px;min-height:250px}
+.m-main{flex:1;display:grid;place-items:center;min-height:190px}
+.m-main .pimg{max-height:260px}
+.m-thumbs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.mt{width:52px;height:44px;border-radius:9px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);padding:4px;transition:.2s;opacity:.6}
+.mt:hover{opacity:1;border-color:var(--line-2)}
+.mt.on{opacity:1;border-color:var(--a1)}
+.mt img{width:100%;height:100%;object-fit:contain}
+.m-side{padding:30px 30px 26px}
+.m-side .brand{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mut-2);font-weight:650}
+.m-side h3{font-size:24px;font-weight:700;letter-spacing:-.03em;margin:6px 0 12px;line-height:1.15}
+.m-price{font-size:30px;font-weight:780;letter-spacing:-.03em;margin:16px 0 3px}
+.m-price small{display:block;font-size:13px;color:var(--mut);font-weight:500;margin-top:3px;letter-spacing:0}
+.m-body{padding:0 30px 30px}
+.m-sec{margin-top:28px}
+.m-sec h4{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut-2);font-weight:700;margin-bottom:13px}
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px}
+.sp{padding:13px 15px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.sp .k{font-size:11px;color:var(--mut-2);text-transform:uppercase;letter-spacing:.06em}
+.sp .v{font-size:14px;font-weight:600;margin-top:3px}
+.sp .t{font-size:12.2px;color:var(--mut);margin-top:5px;line-height:1.45}
+.ask{display:flex;gap:9px;margin-top:12px}
+.ask input{flex:1;background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:12px 15px;font-size:14.5px;outline:none;transition:.2s}
+.ask input:focus{border-color:var(--a1);box-shadow:0 0 0 4px rgba(124,92,255,.12)}
+.ask button{padding:0 20px;border-radius:12px;background:var(--txt);color:#07080B;font-weight:650;font-size:14px}
+.verdict{margin-top:12px;padding:15px 17px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;line-height:1.55;display:none}
+.verdict.on{display:block;animation:up .35s both}
+.verdict b{color:#fff}
+.m-acts{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+
+@media(max-width:820px){
+  .nav-links{display:none}
+  .m-hero{grid-template-columns:1fr}
+  .m-img{min-height:190px;padding:26px}
+  section{padding:66px 0}
+  .hero{padding:44px 0 26px}
+  .chat{max-height:52vh}
+  .rec{flex-wrap:wrap}
+  .rec .thumb{width:70px;height:52px}
+  .rec .side{flex-direction:row;align-items:center;width:100%;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
+  .cta{padding:40px 22px}
+}
+@media(max-width:480px){
+  .wrap{padding:0 17px}
+  .grid{grid-template-columns:1fr}
+  .console{border-radius:var(--r-lg)}
+}
+</style>
+</head>
+<body>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="noise"></div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 100 100" fill="none">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7C5CFF"/><stop offset="1" stop-color="#22D3EE"/>
+        </linearGradient></defs>
+        <circle cx="50" cy="50" r="33" stroke="url(#lg)" stroke-width="11"/>
+        <circle cx="50" cy="17" r="11" fill="url(#lg)"/>
+      </svg>
+      <span>TECNO BAI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#asesor">Asesor</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#confianza">Garantía</a>
+      <a href="#contacto">Contacto</a>
+      <a href="../agro/" title="Agro Bai — insumos y servicios agropecuarios">Agro Bai ↗</a>
+    </nav>
+    <div class="nav-act">
+      <button class="cart-btn" onclick="abrirCarrito()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>Carrito</span>
+        <span class="cart-count" id="cc">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO / ASESOR ================= -->
+  <div class="hero wrap" id="asesor">
+    <div class="eyebrow"><i class="dot"></i> Asesor activo · responde al toque</div>
+    <h1>Decinos para qué la <span class="grad">necesitás</span>.</h1>
+    <p class="sub">Escribí con tus palabras qué vas a hacer con la compu y cuánto querés gastar. Te decimos cuál comprar y, sobre todo, cuál no.</p>
+
+    <div class="console">
+      <div class="console-top">
+        <div class="avatar">T</div>
+        <div class="meta">Asesor Tecno Bai<span>Recomienda solo sobre stock real</span></div>
+        <div class="live"><i></i> en línea</div>
+      </div>
+      <div class="chat empty" id="chat"></div>
+      <div class="composer">
+        <form class="composer-in" id="form">
+          <textarea id="inp" rows="1" placeholder="Ej: necesito una para la facu de arquitectura, hasta 900 dólares" autocomplete="off"></textarea>
+          <button class="send" type="submit" id="send" aria-label="Enviar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
+        </form>
+        <div class="hint">Precios actualizados al tipo de cambio de hoy · Envío a todo el país</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CATÁLOGO ================= -->
+  <section id="catalogo">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>Todo el catálogo</h2>
+          <p>Equipos seleccionados uno por uno. Si algo no está acá, es porque no lo recomendamos.</p>
+        </div>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= CONFIANZA ================= -->
+  <section id="confianza">
+    <div class="wrap">
+      <div class="sec-head"><div>
+        <h2>Por qué comprarnos a nosotros</h2>
+        <p>Vender una notebook es fácil. Que sea la correcta, no.</p>
+      </div></div>
+      <div class="trust">
+        <div class="tcard">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>Garantía oficial 12 meses</h4>
+          <p>Todos los equipos son nuevos, sellados y con garantía del fabricante. Factura A o B en cada operación.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h4>Envío a todo el país</h4>
+          <p>Gratis en compras desde USD 500. En CABA y GBA, entrega en 24 a 48 horas con seguimiento.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4>Asesoramiento honesto</h4>
+          <p>Si con tu presupuesto no llegás a lo que necesitás, te lo decimos. Preferimos no vender antes que vender mal.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></div>
+          <h4>Precio claro, sin sorpresas</h4>
+          <p>El precio que ves ya incluye impuestos. Transferencia con descuento o cuotas: lo charlamos sin vueltas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section id="contacto" style="padding-top:20px">
+    <div class="wrap">
+      <div class="cta">
+        <h2 style="margin-bottom:14px">¿Seguís sin saber cuál?</h2>
+        <p style="color:var(--mut);max-width:46ch;margin:0 auto 28px;font-size:15.5px">Contale al asesor qué vas a hacer con la compu. Tarda menos de un minuto y te ahorra una compra equivocada.</p>
+        <div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap">
+          <a href="#asesor" class="btn">Preguntarle al asesor</a>
+          <a href="#" class="btn ghost" id="wspDirecto">Escribir por WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="contacto" id="contactoBox"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="33" stroke="#5F677A" stroke-width="11"/><circle cx="50" cy="17" r="11" fill="#5F677A"/>
+      </svg>
+      <span>© <span id="year"></span> Tecno Bai S.A. · Notebooks y equipos<span id="footLoc"></span></span>
+    </div>
+    <div class="foot-links">
+      <a href="../agro/">Agro Bai</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#confianza">Garantía</a>
+      <a href="#" id="wspFoot">WhatsApp</a>
+    </div>
+  </div>
+  <div class="wrap" style="border-top:1px solid rgba(255,255,255,.07);margin-top:18px;padding-top:16px;font-size:12.5px;line-height:1.75;color:#5F677A">
+    <strong style="color:#8A93A6">TECNO BAI S.A.</strong> · CUIT 30-71794384-4 · IVA Responsable Inscripto<br>
+    Ruta Nacional 5 km 100 · Mercedes, Buenos Aires
+  </div>
+</footer>
+
+<!-- ================= CARRITO ================= -->
+<div class="scrim" id="scrim" onclick="cerrarTodo()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-top">
+    <h3>Tu pedido</h3>
+    <button class="x" onclick="cerrarTodo()" aria-label="Cerrar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="tot"><span>Subtotal</span><span id="subUsd">USD 0</span></div>
+    <div class="tot big"><span>Total</span><span id="subArs">$ 0</span></div>
+    <a class="wsp" id="wspBtn" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+      Finalizar pedido por WhatsApp
+    </a>
+    <p class="pay-note">Te respondemos con las formas de pago disponibles: transferencia con descuento, tarjeta en cuotas o efectivo.</p>
+  </div>
+</aside>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modal">
+  <div class="modal-in" id="modalIn"></div>
+</div>
+
+<script>
+/* ============================================================
+   1. CONFIGURACIÓN  —  editá SOLO esto para poner lo tuyo
+   ============================================================ */
+const CONFIG = {
+  marca:        "Tecno Bai",
+  whatsapp:     "5492322498124",   // formato internacional, sin + ni espacios
+  telVisible:   "2322 49-8124",    // ← cómo se muestra en pantalla
+  tipoCambio:   1400,              // ← cuántos pesos vale 1 dólar hoy
+  envioGratis:  500,               // ← envío gratis desde estos dólares
+
+  /* --- datos de contacto que se muestran en el sitio --- */
+  direccion:    "Ruta 5 km 100 · Calle 109 y 120",
+  localidad:    "Mercedes, Provincia de Buenos Aires",
+  horario:      "Lunes a sábado de 8 a 18 h",
+  email:        "contacto@tecnoagrobaiarg.com",   // ← opcional: si lo dejás vacío no se muestra
+};
+/* Nota: los datos fiscales (Tecno Bai S.A., CUIT 30-71794384-4) van en el pie
+   del sitio, no acá. Todo lo que se escribe en este
+   archivo queda visible para cualquiera que mire el código fuente de la página.
+   Esos datos van recién cuando se conecte la facturación, y del lado del servidor. */
+
+/* ============================================================
+   2. CATÁLOGO  —  agregá, sacá o editá productos acá
+   ------------------------------------------------------------
+   potencia: 1 a 10 (cuánto aguanta el equipo)
+   perfil:   0 a 10, qué tan buena es para cada uso
+   ============================================================ */
+const CATALOGO = [
+  { id:"hp250", marca:"HP", modelo:"250 G10", usd:469, color:["#0EA5E9","#0369A1"],
+    img:"", fotos:[],   // ← foto principal y fotos extra. Ej: img:"img/hp-250.jpg", fotos:["img/hp-250-b.jpg"]
+    cpu:"Intel Core i3-1315U", gpu:"Gráficos integrados Intel UHD", ram:"8 GB DDR4", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD', peso:"1.6 kg", bateria:"6 a 7 horas", potencia:3, stock:8,
+    perfil:{basico:10,oficina:8,estudio:7,programacion:3,diseno:1,gaming:0,portabilidad:5},
+    resumen:"La opción más económica que todavía anda rápido para lo de todos los días.",
+    upgrade:"Se le puede sumar RAM hasta 16 GB (aprox. USD 45) y cambia mucho." },
+
+  { id:"ideapad3", marca:"Lenovo", modelo:"IdeaPad Slim 3", usd:549, color:["#EF4444","#991B1B"],
+    img:"", fotos:[],
+    cpu:"AMD Ryzen 5 7520U", gpu:"AMD Radeon integrada", ram:"16 GB LPDDR5", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD', peso:"1.6 kg", bateria:"8 horas", potencia:4, stock:12, destacado:true,
+    perfil:{basico:10,oficina:9,estudio:10,programacion:5,diseno:2,gaming:1,portabilidad:6},
+    resumen:"El mejor precio/rendimiento del catálogo para estudiar y trabajar. Se vende sola.",
+    upgrade:"La RAM viene soldada, pero 16 GB ya te alcanzan para años." },
+
+  { id:"vivobook15", marca:"Asus", modelo:"Vivobook 15", usd:649, color:["#3B82F6","#1E40AF"],
+    img:"", fotos:[],
+    cpu:"Intel Core i5-1335U", gpu:"Gráficos integrados Intel Iris Xe", ram:"16 GB DDR4", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD', peso:"1.7 kg", bateria:"7 horas", potencia:5, stock:6,
+    perfil:{basico:9,oficina:10,estudio:9,programacion:7,diseno:4,gaming:2,portabilidad:5},
+    resumen:"Procesador de 10 núcleos: aguanta muchas pestañas, Excel pesado y multitarea sin quejarse.",
+    upgrade:"Tiene un slot libre: podés llegar a 24 GB de RAM (aprox. USD 40)." },
+
+  { id:"aspire5", marca:"Acer", modelo:"Aspire 5", usd:739, color:["#22C55E","#15803D"],
+    img:"", fotos:[],
+    cpu:"AMD Ryzen 7 7730U", gpu:"AMD Radeon integrada", ram:"16 GB DDR4", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD IPS', peso:"1.8 kg", bateria:"8 horas", potencia:6, stock:4,
+    perfil:{basico:9,oficina:10,estudio:9,programacion:8,diseno:6,gaming:3,portabilidad:4},
+    resumen:"Ocho núcleos reales por menos de 750. Para quien trabaja fuerte pero no juega.",
+    upgrade:"Admite 32 GB de RAM y un segundo disco M.2." },
+
+  { id:"thinkpade14", marca:"Lenovo", modelo:"ThinkPad E14 Gen 5", usd:849, color:["#DC2626","#7F1D1D"],
+    img:"", fotos:[],
+    cpu:"AMD Ryzen 5 7530U", gpu:"AMD Radeon integrada", ram:"16 GB DDR4", ssd:"512 GB SSD NVMe",
+    pantalla:'14" Full HD IPS', peso:"1.4 kg", bateria:"9 horas", potencia:5, stock:5,
+    perfil:{basico:8,oficina:10,estudio:8,programacion:8,diseno:4,gaming:1,portabilidad:8},
+    resumen:"Teclado de ThinkPad y chasis que aguanta trote. La que compran los que escriben todo el día.",
+    upgrade:"RAM ampliable a 40 GB y disco cambiable sin romper la garantía." },
+
+  { id:"inspiron14", marca:"Dell", modelo:"Inspiron 14", usd:899, color:["#6366F1","#3730A3"],
+    img:"", fotos:[],
+    cpu:"Intel Core i7-1355U", gpu:"Gráficos integrados Intel Iris Xe", ram:"16 GB LPDDR5", ssd:"512 GB SSD NVMe",
+    pantalla:'14" WVA 300 nits', peso:"1.5 kg", bateria:"9 horas", potencia:6, stock:3,
+    perfil:{basico:8,oficina:10,estudio:8,programacion:9,diseno:5,gaming:2,portabilidad:8},
+    resumen:"i7 en formato chico. Para programar y trabajar moviéndose, sin cargar un ladrillo.",
+    upgrade:"El disco se puede ampliar a 2 TB (aprox. USD 90)." },
+
+  { id:"galaxybook4", marca:"Samsung", modelo:"Galaxy Book4", usd:949, color:["#8B5CF6","#5B21B6"],
+    img:"", fotos:[],
+    cpu:"Intel Core Ultra 5 120U", gpu:"Intel Graphics integrada", ram:"16 GB LPDDR5", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD', peso:"1.55 kg", bateria:"10 horas", potencia:6, stock:4,
+    perfil:{basico:9,oficina:10,estudio:9,programacion:8,diseno:6,gaming:2,portabilidad:8},
+    resumen:"Batería de las que no te dejan a pie y pantalla grande. Buena para el que viaja seguido.",
+    upgrade:"Disco ampliable. La RAM viene soldada." },
+
+  { id:"loq15", marca:"Lenovo", modelo:"LOQ 15", usd:999, color:["#F97316","#9A3412"],
+    img:"", fotos:[],
+    cpu:"Intel Core i5-12450HX", gpu:"NVIDIA RTX 3050 6 GB", ram:"16 GB DDR5", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD 144 Hz', peso:"2.4 kg", bateria:"4 a 5 horas", potencia:7, stock:7, destacado:true,
+    perfil:{basico:8,oficina:9,estudio:8,programacion:9,diseno:7,gaming:8,portabilidad:2},
+    resumen:"La puerta de entrada al gaming real. Placa de video dedicada sin irse a las nubes de precio.",
+    upgrade:"Dos slots de RAM (hasta 32 GB) y segundo M.2 libre." },
+
+  { id:"nitrov15", marca:"Acer", modelo:"Nitro V 15", usd:1049, color:["#10B981","#065F46"],
+    img:"", fotos:[],
+    cpu:"Intel Core i5-13420H", gpu:"NVIDIA RTX 4050 6 GB", ram:"16 GB DDR5", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD 144 Hz', peso:"2.1 kg", bateria:"5 horas", potencia:8, stock:5,
+    perfil:{basico:8,oficina:9,estudio:8,programacion:9,diseno:8,gaming:9,portabilidad:3},
+    resumen:"RTX 4050 al precio más bajo del catálogo. Juega todo en alto y renderiza sin drama.",
+    upgrade:"Hasta 32 GB de RAM y segundo disco." },
+
+  { id:"victus15", marca:"HP", modelo:"Victus 15", usd:1149, color:["#06B6D4","#0E7490"],
+    img:"", fotos:[],
+    cpu:"Intel Core i5-13420H", gpu:"NVIDIA RTX 4050 6 GB", ram:"16 GB DDR4", ssd:"512 GB SSD NVMe",
+    pantalla:'15.6" Full HD 144 Hz', peso:"2.3 kg", bateria:"5 horas", potencia:8, stock:3,
+    perfil:{basico:8,oficina:9,estudio:8,programacion:9,diseno:8,gaming:9,portabilidad:3},
+    resumen:"Refrigeración mejor que la media: no baja el rendimiento después de dos horas de juego.",
+    upgrade:"RAM ampliable a 32 GB." },
+
+  { id:"macair13", marca:"Apple", modelo:"MacBook Air 13 M3", usd:1249, color:["#94A3B8","#475569"],
+    img:"", fotos:[],
+    cpu:"Apple M3 (8 núcleos)", gpu:"GPU Apple de 10 núcleos", ram:"16 GB unificada", ssd:"256 GB SSD",
+    pantalla:'13.6" Liquid Retina', peso:"1.24 kg", bateria:"15 a 18 horas", potencia:7, stock:6, destacado:true,
+    perfil:{basico:9,oficina:10,estudio:9,programacion:10,diseno:9,gaming:2,portabilidad:10},
+    resumen:"Silenciosa, sin ventilador y con una batería que dura todo el día. La mejor para llevar encima.",
+    upgrade:"No se amplía nada: lo que comprás es lo que tenés para siempre. Elegí bien el disco." },
+
+  { id:"zenbook14", marca:"Asus", modelo:"Zenbook 14 OLED", usd:1299, color:["#2563EB","#1E3A8A"],
+    img:"", fotos:[],
+    cpu:"Intel Core Ultra 7 155H", gpu:"Intel Arc integrada", ram:"16 GB LPDDR5X", ssd:"1 TB SSD NVMe",
+    pantalla:'14" OLED 2.8K 120 Hz', peso:"1.28 kg", bateria:"12 horas", potencia:7, stock:3,
+    perfil:{basico:9,oficina:10,estudio:9,programacion:10,diseno:9,gaming:3,portabilidad:10},
+    resumen:"Pantalla OLED impresionante en 1.28 kg. Para diseño y contenido si no necesitás placa dedicada.",
+    upgrade:"Todo soldado, pero viene bien equipada de fábrica." },
+
+  { id:"tufa15", marca:"Asus", modelo:"TUF Gaming A15", usd:1349, color:["#EAB308","#854D0E"],
+    img:"", fotos:[],
+    cpu:"AMD Ryzen 7 7435HS", gpu:"NVIDIA RTX 4060 8 GB", ram:"16 GB DDR5", ssd:"1 TB SSD NVMe",
+    pantalla:'15.6" Full HD 144 Hz', peso:"2.2 kg", bateria:"5 horas", potencia:9, stock:4, destacado:true,
+    perfil:{basico:8,oficina:9,estudio:8,programacion:10,diseno:9,gaming:10,portabilidad:2},
+    resumen:"El punto justo del gaming: RTX 4060 y 1 TB. Corre todo en alto y aguanta años.",
+    upgrade:"Hasta 32 GB de RAM y segundo M.2 libre." },
+
+  { id:"legionslim5", marca:"Lenovo", modelo:"Legion Slim 5", usd:1799, color:["#B91C1C","#450A0A"],
+    img:"", fotos:[],
+    cpu:"AMD Ryzen 7 8845HS", gpu:"NVIDIA RTX 4070 8 GB", ram:"16 GB DDR5", ssd:"1 TB SSD NVMe",
+    pantalla:'16" WQXGA 165 Hz', peso:"2.0 kg", bateria:"6 horas", potencia:10, stock:2,
+    perfil:{basico:8,oficina:9,estudio:8,programacion:10,diseno:10,gaming:10,portabilidad:4},
+    resumen:"RTX 4070 en un chasis fino. Juego pesado, render 3D y edición 4K sin pedir permiso.",
+    upgrade:"Hasta 64 GB de RAM. Un fierro que dura." },
+
+  { id:"omen14", marca:"HP", modelo:"Omen Transcend 14", usd:1899, color:["#A855F7","#6B21A8"],
+    img:"", fotos:[],
+    cpu:"Intel Core Ultra 7 155H", gpu:"NVIDIA RTX 4060 8 GB", ram:"32 GB LPDDR5X", ssd:"1 TB SSD NVMe",
+    pantalla:'14" OLED 2.8K 120 Hz', peso:"1.63 kg", bateria:"8 horas", potencia:9, stock:2,
+    perfil:{basico:8,oficina:10,estudio:8,programacion:10,diseno:10,gaming:9,portabilidad:8},
+    resumen:"Rara avis: potencia de gaming en 1.6 kg con pantalla OLED. Para el que no quiere resignar nada.",
+    upgrade:"Viene con 32 GB de fábrica, no hace falta tocar nada." },
+
+  { id:"macpro14", marca:"Apple", modelo:"MacBook Pro 14 M4 Pro", usd:2399, color:["#64748B","#1E293B"],
+    img:"", fotos:[],
+    cpu:"Apple M4 Pro (12 núcleos)", gpu:"GPU Apple de 16 núcleos", ram:"24 GB unificada", ssd:"512 GB SSD",
+    pantalla:'14.2" Liquid Retina XDR 120 Hz', peso:"1.55 kg", bateria:"16 horas", potencia:10, stock:2,
+    perfil:{basico:9,oficina:10,estudio:8,programacion:10,diseno:10,gaming:3,portabilidad:9},
+    resumen:"La herramienta de trabajo definitiva para video, música y desarrollo. Cara y lo vale.",
+    upgrade:"No se amplía. Si editás 4K seguido, considerá el disco de 1 TB." },
+
+  /* ---- accesorios ---- */
+  { id:"mouselog", marca:"Logitech", modelo:"MX Master 3S", usd:99, accesorio:true, color:["#475569","#1E293B"],
+    img:"", fotos:[],
+    cpu:"—", gpu:"—", ram:"—", ssd:"—", pantalla:"—", peso:"141 g", bateria:"70 días", potencia:0, stock:15,
+    perfil:{}, resumen:"El mouse que compran los que trabajan ocho horas y no quieren dolor de muñeca.", upgrade:"—" },
+
+  { id:"monitorlg", marca:"LG", modelo:'Monitor 27" IPS Full HD', usd:189, accesorio:true, color:["#0F766E","#134E4A"],
+    img:"", fotos:[],
+    cpu:"—", gpu:"—", ram:"—", ssd:"—", pantalla:'27" IPS 75 Hz', peso:"4.2 kg", bateria:"—", potencia:0, stock:9,
+    perfil:{}, resumen:"Sumale una pantalla grande a la notebook y trabajás al doble de velocidad.", upgrade:"—" },
+
+  { id:"mochila", marca:"Tecno Bai", modelo:"Mochila antirrobo 15.6", usd:59, accesorio:true, color:["#7C5CFF","#4C1D95"],
+    img:"", fotos:[],
+    cpu:"—", gpu:"—", ram:"—", ssd:"—", pantalla:"—", peso:"780 g", bateria:"—", potencia:0, stock:20,
+    perfil:{}, resumen:"Compartimento acolchado, cierre oculto y puerto USB. Si la vas a mover, la necesitás.", upgrade:"—" },
+];
+
+/* ============================================================
+   3. DICCIONARIOS DEL ASESOR
+   ============================================================ */
+const USOS = {
+  gaming:      ["jugar","juego","juegos","gaming","gamer","fps","valorant","fortnite","gta","cyberpunk","lol","league","cs2","counter","minecraft","steam","elden","rdr2","fifa","pubg","roblox","warzone","apex","sims","forza","dota","overwatch"],
+  diseno:      ["diseno","disenar","editar","edicion","video","premiere","photoshop","illustrator","after effects","render","renderizar","3d","blender","autocad","solidworks","revit","arquitectura","ilustracion","foto","fotos","davinci","modelado","animacion","cad","youtuber","streaming","streamear"],
+  programacion:["programar","programacion","codigo","desarrollo","developer","desarrollador","python","java","javascript","android studio","docker","ide","backend","frontend","web","sistemas","informatica","datos","machine learning","ia"],
+  estudio:     ["facu","facultad","universidad","estudiar","estudio","estudiante","colegio","secundaria","apuntes","clases","cursada","tesis","carrera","curso","escuela"],
+  oficina:     ["oficina","trabajo","laburo","laburar","excel","word","office","administrativo","contable","contadora","contador","empresa","teletrabajo","home office","zoom","meet","reuniones","planillas","facturacion","ventas","secretaria"],
+  portabilidad:["liviana","liviano","portatil","viajar","viaje","llevar","mochila","bateria","autonomia","colectivo","tren","movilidad","chica","chiquita","transportar","cargar"],
+  basico:      ["navegar","internet","youtube","netflix","mail","correo","basico","basica","sencilla","simple","mi vieja","mi viejo","abuela","abuelo","papa","mama","jubilado","redes","facebook","whatsapp"],
+};
+
+const PROGRAMAS = {
+  "office":1,"word":1,"excel":2,"zoom":1,"meet":1,"chrome":2,"navegar":1,"netflix":1,"youtube":1,
+  "canva":2,"figma":4,"photoshop":4,"illustrator":4,"lightroom":5,"indesign":4,
+  "premiere":6,"after effects":7,"davinci":7,"final cut":6,"edicion de video":6,"editar video":6,
+  "autocad":6,"revit":7,"solidworks":7,"sketchup":5,"blender":7,"3ds max":8,"maya":8,"cad":6,
+  "unity":6,"unreal":8,"android studio":6,"visual studio":5,"vscode":3,"docker":5,"python":3,"java":4,
+  "matlab":6,"spss":4,"stata":4,"r studio":4,
+  "minecraft":3,"roblox":2,"lol":3,"league of legends":3,"valorant":3,"cs2":4,"counter strike":4,
+  "fortnite":5,"fifa":5,"gta":6,"gta v":5,"gta 6":8,"apex":5,"pubg":5,"warzone":7,"forza":6,
+  "elden ring":7,"cyberpunk":8,"rdr2":7,"red dead":7,"the last of us":8,"hogwarts":7,"starfield":8,
+  "sims":4,"sims 4":4,"dota":4,"overwatch":5,"rocket league":3,"stream":6,"streaming":6,
+};
+
+/* ============================================================
+   4. UTILIDADES
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const norm = s => (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const ars = usd => "$ " + Math.round(usd * CONFIG.tipoCambio).toLocaleString("es-AR");
+const usdF = u => "USD " + u.toLocaleString("es-AR");
+const prod = id => CATALOGO.find(p => p.id === id);
+
+/* ---- ilustración de reserva: se usa cuando el producto todavía no tiene foto ---- */
+function laptop(p, w){
+  const [c1,c2] = p.color;
+  const uid = p.id + Math.random().toString(36).slice(2,7);
+  if(p.accesorio){
+    return `<svg viewBox="0 0 200 132" style="width:${w||"100%"}">
+      <defs><linearGradient id="g${uid}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
+      <ellipse cx="100" cy="116" rx="58" ry="5" fill="#000" opacity=".45"/>
+      <rect x="46" y="24" width="108" height="78" rx="18" fill="url(#g${uid})" opacity=".9"/>
+      <path d="M46 42a18 18 0 0 1 18-18h72a18 18 0 0 1 18 18z" fill="#fff" opacity=".1"/>
+      <rect x="62" y="40" width="76" height="46" rx="11" fill="#07080B" opacity=".38"/>
+      <circle cx="100" cy="63" r="12" fill="#fff" opacity=".22"/>
+    </svg>`;
+  }
+  return `<svg viewBox="0 0 200 132" style="width:${w||"100%"}">
+    <defs>
+      <linearGradient id="s${uid}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="${c1}" stop-opacity=".95"/><stop offset="1" stop-color="${c2}" stop-opacity=".95"/></linearGradient>
+      <linearGradient id="b${uid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#333C50"/><stop offset="1" stop-color="#141922"/></linearGradient>
+    </defs>
+    <ellipse cx="100" cy="117" rx="80" ry="5" fill="#000" opacity=".5"/>
+    <rect x="38" y="16" width="124" height="78" rx="7" fill="#0B0D12" stroke="#2A3142" stroke-width="2"/>
+    <rect x="44" y="22" width="112" height="64" rx="3" fill="url(#s${uid})"/>
+    <rect x="44" y="22" width="112" height="64" rx="3" fill="#07080B" opacity=".3"/>
+    <path d="M44 22h44L44 74z" fill="#fff" opacity=".07"/>
+    <circle cx="100" cy="54" r="17" fill="#fff" opacity=".12"/>
+    <path d="M26 96h148l9 13a3 3 0 0 1-3 5H20a3 3 0 0 1-3-5z" fill="url(#b${uid})"/>
+    <path d="M26 96h148l2 3H24z" fill="#fff" opacity=".07"/>
+    <rect x="84" y="105" width="32" height="3" rx="1.5" fill="#0B0D12" opacity=".75"/>
+  </svg>`;
+}
+
+/* ---- foto real si existe, ilustración si todavía no ---- */
+function foto(p, w){
+  if(p.img) return `<img class="pimg" src="${p.img}" alt="${p.marca} ${p.modelo}" loading="lazy" onerror="sinFoto(this,'${p.id}')">`;
+  return laptop(p, w);
+}
+function sinFoto(el, id){ const p = prod(id); if(p) el.outerHTML = laptop(p); }
+
+/* ============================================================
+   5. MOTOR DEL ASESOR (local, sin API)
+   ------------------------------------------------------------
+   Para enchufar IA real más adelante: reemplazá el cuerpo de
+   pensar() por un fetch a tu endpoint, mandando el CATALOGO
+   como contexto. El resto del sitio no se toca.
+   ============================================================ */
+const estado = { usos:{}, presupuesto:null, ultimos:[], saludado:false };
+
+function detectarUsos(t){
+  const out = {};
+  for(const [uso, palabras] of Object.entries(USOS)){
+    for(const w of palabras){ if(t.includes(w)){ out[uso] = (out[uso]||0) + 1; } }
+  }
+  return out;
+}
+
+function detectarPresupuesto(t){
+  const tc = CONFIG.tipoCambio;
+  let m;
+  // "1.2 millones" / "un millon"
+  if((m = t.match(/(\d+[.,]?\d*)\s*millon/))) return Math.round(parseFloat(m[1].replace(",","."))*1e6/tc);
+  if(/un millon/.test(t)) return Math.round(1e6/tc);
+  // "900 mil" / "900 lucas" / "900 palos"
+  if((m = t.match(/(\d+[.,]?\d*)\s*(mil|luca|lucas|palos)/))) return Math.round(parseFloat(m[1].replace(",","."))*1000/tc);
+  // dólares explícitos
+  if((m = t.match(/(?:usd|u\$s|dolares|dolar|verdes)\s*(\d{2,5})/))) return parseInt(m[1]);
+  if((m = t.match(/(\d{2,5})\s*(?:usd|u\$s|dolares|dolar|verdes)/))) return parseInt(m[1]);
+  // número suelto: si es grande son pesos, si es chico son dólares
+  const nums = t.match(/\d[\d.]{1,8}/g);
+  if(nums){
+    for(const n of nums){
+      const v = parseInt(n.replace(/\./g,""));
+      if(v >= 100000) return Math.round(v/tc);
+      if(v >= 200 && v <= 6000) return v;
+    }
+  }
+  return null;
+}
+
+/* qué tan buena es la máquina para lo que el usuario pidió (0 a 10) */
+function aptitud(p, usos){
+  let s = 0, t = 0;
+  for(const [u,w] of Object.entries(usos)){ s += (p.perfil[u]||0) * w; t += w; }
+  return t ? s/t : (p.perfil.oficina||0);
+}
+/* las que realmente sirven para ese uso, sin mirar el precio */
+function aptas(usos){
+  const u = Object.keys(usos).length ? usos : {oficina:1};
+  const ok = CATALOGO.filter(p => !p.accesorio && aptitud(p, u) >= 7);
+  return ok.length ? ok : CATALOGO.filter(p => !p.accesorio);
+}
+
+function puntuar(p, usos, presu){
+  if(p.accesorio) return -1;
+  let s = aptitud(p, usos);
+  if(presu){
+    if(p.usd > presu*1.08) s -= (p.usd/presu - 1) * 22;      // se pasa: penaliza fuerte
+    else s += 3 - Math.abs(presu - p.usd) / presu * 3.5;      // premia aprovechar el presupuesto
+  }
+  s += (p.destacado ? .6 : 0) + (p.stock > 4 ? .3 : 0);
+  return s;
+}
+
+/* motivo honesto y distinto para cada equipo (nunca inventa specs) */
+function porQue(p, usos, grupo){
+  const claves = Object.keys(usos||{});
+  claves.sort((a,b)=>(usos[b]-usos[a]) || ((p.perfil[b]||0)-(p.perfil[a]||0)));
+  // si el usuario nombró varios usos, cada tarjeta destaca uno distinto
+  const pos = grupo ? Math.max(0, grupo.indexOf(p)) : 0;
+  const top = claves.length ? claves[pos % claves.length] : undefined;
+  const tieneRTX = /RTX/.test(p.gpu);
+  const hz = /\d+ Hz/.exec(p.pantalla);
+  let f;
+  switch(top){
+    case "gaming":
+      f = tieneRTX
+        ? `${p.gpu}${hz?` y pantalla de ${hz[0]}`:""}: juega en calidad alta sin tirones.`
+        : `No tiene placa de video dedicada: da para juegos livianos, no para títulos pesados.`;
+      break;
+    case "diseno":
+      f = p.potencia>=8 ? `Potencia de sobra para render y edición 4K sin esperas eternas.`
+        : p.potencia>=6 ? `Aguanta diseño y edición con comodidad, sin ser una bestia.`
+        : `Para diseño pesado queda corta: sirve para retoque simple y Canva.`;
+      break;
+    case "programacion":
+      f = p.potencia>=6 ? `Compila rápido y banca el IDE con el navegador abierto encima.`
+                        : `Alcanza para programar liviano: web, Python y cursos.`;
+      break;
+    case "portabilidad":
+      f = `${p.peso} y hasta ${p.bateria} de batería: la llevás sin darte cuenta.`;
+      break;
+    case "estudio":
+      f = `${p.ram} y ${p.ssd}: cubre toda la cursada con margen de sobra.`;
+      break;
+    case "oficina":
+      f = `${p.cpu.split("(")[0].trim()} con ${p.ram}: planillas pesadas y 30 pestañas sin frenarse.`;
+      break;
+    case "basico":
+      f = `Arranca en segundos y hace todo lo cotidiano sin complicarte.`;
+      break;
+    default:
+      f = p.resumen;
+  }
+  if(grupo && grupo.length > 1){
+    const barata  = Math.min(...grupo.map(x=>x.usd));
+    const potente = Math.max(...grupo.map(x=>x.potencia));
+    const yo = grupo.indexOf(p);
+    const iBarata  = grupo.findIndex(x=>x.usd === barata);
+    const iPotente = grupo.findIndex(x=>x.potencia === potente);
+    if(yo === iBarata && iBarata !== iPotente)      f = "La más barata de las tres. " + f;
+    else if(yo === iPotente && iPotente !== iBarata) f = "La más potente del grupo. " + f;
+  }
+  return f;
+}
+
+function recomendar(usos, presu, n=3){
+  return aptas(usos)
+    .map(p => ({p, s:puntuar(p, usos, presu)}))
+    .sort((a,b)=>b.s-a.s).slice(0,n).map(x=>x.p);
+}
+
+/* ---- render de una tarjeta dentro del chat ---- */
+function tarjeta(p, usos, i, grupo){
+  return `<div class="rec">
+    <div class="thumb">${foto(p)}</div>
+    <div class="info">
+      <div class="tit">${p.marca} ${p.modelo}${i===0?' <span class="pick">Mi elección</span>':''}</div>
+      <div class="why">${porQue(p, usos||{}, grupo)}</div>
+      <div class="specs">
+        <span class="chipx">${p.cpu.split("(")[0].trim()}</span>
+        <span class="chipx">${p.ram}</span>
+        ${p.gpu.includes("RTX")?`<span class="chipx">${p.gpu}</span>`:''}
+      </div>
+    </div>
+    <div class="side">
+      <div class="price">${ars(p.usd)}<small>${usdF(p.usd)}</small></div>
+      <div class="rec-acts">
+        <button class="mini" onclick="verProducto('${p.id}')">Ver</button>
+        <button class="mini solid" onclick="agregar('${p.id}',1,true)">Agregar</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function comparativa(ps){
+  const filas = [
+    ["Precio", p => ars(p.usd)],
+    ["Procesador", p => p.cpu],
+    ["Video", p => p.gpu],
+    ["Memoria", p => p.ram],
+    ["Disco", p => p.ssd],
+    ["Pantalla", p => p.pantalla],
+    ["Peso", p => p.peso],
+    ["Batería", p => p.bateria],
+  ];
+  const maxPot = Math.max(...ps.map(p=>p.potencia));
+  return `<div class="cmp"><table>
+    <tr><th></th>${ps.map(p=>`<th>${p.marca} ${p.modelo}</th>`).join("")}</tr>
+    ${filas.map(([k,f])=>`<tr><td>${k}</td>${ps.map(p=>`<td>${f(p)}</td>`).join("")}</tr>`).join("")}
+    <tr><td>Potencia</td>${ps.map(p=>`<td class="${p.potencia===maxPot?'win':''}">${p.potencia}/10</td>`).join("")}</tr>
+  </table></div>`;
+}
+
+function medidor(ps, prog, req){
+  return `<div class="meter">${ps.map(p=>{
+    const pct = Math.max(8, Math.min(100, Math.round((p.potencia/Math.max(req,1))*62)));
+    const et = p.potencia >= req+3 ? "de sobra" : p.potencia >= req+1 ? "muy bien"
+             : p.potencia === req ? "justo" : p.potencia === req-1 ? "ajustada" : "no llega";
+    return `<div class="meter-row"><div class="nm">${p.marca} ${p.modelo}</div>
+      <div class="bar"><i data-w="${pct}"></i></div><div class="vl">${et}</div></div>`;
+  }).join("")}</div>`;
+}
+
+/* ---- el cerebro ---- */
+function pensar(texto){
+  const t = norm(texto);
+
+  // saludo suelto
+  if(/^(hola|buenas|buen dia|buenas tardes|hey|que tal|holis)\b/.test(t) && t.length < 22){
+    return { txt:`<p>¡Hola! Contame para qué vas a usar la compu y cuánto querés gastar, y te digo cuál te conviene.</p>`,
+             sugs:["Para la facultad, hasta 700 dólares","Para jugar sin gastar de más","Para editar video","Para trabajar con Excel"] };
+  }
+  if(/(gracias|genial|joya|barbaro|buenisimo|perfecto)/.test(t) && t.length < 30){
+    return { txt:`<p>De nada. Si querés, agregá lo que te guste al carrito y lo cerramos por WhatsApp — ahí te paso formas de pago y plazo de entrega.</p>`,
+             sugs:["Ver todo el catálogo","Comparar las tres","Algo más barato"] };
+  }
+
+  // "¿sirve para X?"
+  const prog = Object.keys(PROGRAMAS).sort((a,b)=>b.length-a.length).find(k => t.includes(k));
+  if(prog && (/sirve|corre|anda|aguanta|puedo|va a|funciona|banca/.test(t) || estado.ultimos.length)){
+    const req = PROGRAMAS[prog];
+    const base = estado.ultimos.length ? estado.ultimos : recomendar(detectarUsos(t), estado.presupuesto);
+    const ok = base.filter(p => p.potencia >= req);
+    let txt = ok.length
+      ? `<p>Con <strong>${prog}</strong> vas bien: ${ok.map(p=>p.marca+" "+p.modelo).join(", ")} ${ok.length>1?'lo mueven':'lo mueve'}. Te marco con qué holgura cada una.</p>`
+      : `<p>Para <strong>${prog}</strong> ninguna de estas te va a dejar contento. Te muestro las que sí lo bancan.</p>`;
+    const ps = ok.length ? base : recomendar({gaming:req>=5?2:0, diseno:req>=6?2:1, programacion:1}, null);
+    estado.ultimos = ps;
+    return { txt: txt + medidor(ps, prog, req), recs: ok.length ? null : ps,
+             sugs:["Ver la más barata que lo corra","Comparar estas","Agregar la primera al carrito"] };
+  }
+
+  // acciones directas
+  if(/(ver el pedido|ver carrito|mi carrito|mi pedido)/.test(t)){
+    setTimeout(abrirCarrito, 300);
+    return { txt:`<p>Te abro el pedido acá al costado. Desde ahí lo cerramos por WhatsApp.</p>`, sugs:["Sumar un accesorio","Seguir mirando"] };
+  }
+  if(/(accesorio|mouse|monitor|mochila|teclado)/.test(t)){
+    const acc = CATALOGO.filter(p=>p.accesorio);
+    return { txt:`<p>Lo que más se lleva junto con la notebook:</p>`, recs:acc, sugs:["Ver el pedido","Volver a las notebooks"] };
+  }
+  if(/(agregar|agrega|sumar|suma|lo llevo|la llevo|me la llevo|quiero esa|comprar esa)/.test(t) && estado.ultimos.length){
+    const p = estado.ultimos[0];
+    agregar(p.id, 1, false);
+    return { txt:`<p>Listo, sumé la <strong>${p.marca} ${p.modelo}</strong> al pedido (${ars(p.usd)}). Cuando quieras lo cerramos por WhatsApp y te paso las formas de pago.</p>`,
+             sugs:["Ver el pedido","Sumar un accesorio","Mostrame otra opción"] };
+  }
+
+  // ajustes sobre la última recomendación
+  if(estado.ultimos.length){
+    if(/(mas barat|mas econom|bajar|menos plata|no me alcanza|muy car)/.test(t)){
+      const tope = Math.min(...estado.ultimos.map(p=>p.usd));
+      const ps = CATALOGO.filter(p=>!p.accesorio && p.usd < tope)
+        .sort((a,b)=>puntuar(b,estado.usos,null)-puntuar(a,estado.usos,null)).slice(0,3);
+      estado.ultimos = ps.length?ps:estado.ultimos;
+      return ps.length
+        ? { txt:`<p>Bajando el precio, esto es lo mejor que hay. Ojo: resignás algo de potencia, te marco qué.</p>`, recs:ps,
+            sugs:["¿Qué pierdo exactamente?","Comparar estas tres","Volver a las anteriores"] }
+        : { txt:`<p>Más barato que eso ya no tengo nada que te sirva para lo que necesitás. Prefiero decírtelo antes que venderte algo que te va a quedar corto.</p>`,
+            sugs:["Ver todo el catálogo","Mostrame igual lo más barato"] };
+    }
+    if(/(mas potent|mas fuerte|mejor|potenci|no me importa el precio|subir)/.test(t)){
+      const tope = Math.max(...estado.ultimos.map(p=>p.usd));
+      const ps = CATALOGO.filter(p=>!p.accesorio && p.usd > tope).sort((a,b)=>b.potencia-a.potencia).slice(0,3);
+      estado.ultimos = ps.length?ps:estado.ultimos;
+      return { txt:`<p>Subiendo un escalón, estas son las que más te van a durar en el tiempo.</p>`, recs:ps,
+               sugs:["Comparar con las anteriores","¿Vale la pena la diferencia?","Agregar la primera"] };
+    }
+    if(/(comparar|compara|diferencia|cual conviene|versus|vs)/.test(t)){
+      return { txt:`<p>Van lado a lado. En verde marco quién gana en potencia bruta.</p>` + comparativa(estado.ultimos),
+               sugs:["¿Cuál me recomendás?","La más barata","Agregar la mejor al carrito"] };
+    }
+    if(/(cual me recomend|cual elijo|decidi vos|cual comprari)/.test(t)){
+      const p = estado.ultimos[0];
+      return { txt:`<p>Si fuese mi plata: <strong>${p.marca} ${p.modelo}</strong>. ${p.resumen} ${p.upgrade!=="—"?"<br><br><em style='color:var(--mut)'>Dato: "+p.upgrade+"</em>":""}</p>`,
+               recs:[p], sugs:["Agregar al carrito","Ver la ficha completa","Mostrame otra opción"] };
+    }
+    if(/(que pierdo|que resigno|contra)/.test(t)){
+      return { txt:`<p>Te lo pongo en la mesa sin vueltas.</p>` + comparativa(estado.ultimos),
+               sugs:["Me quedo con la del medio","Volver a las caras"] };
+    }
+  }
+
+  // caso general: acumular usos y presupuesto
+  const nuevosUsos = detectarUsos(t);
+  const presu = detectarPresupuesto(t);
+  Object.entries(nuevosUsos).forEach(([k,v]) => estado.usos[k] = (estado.usos[k]||0) + v);
+  if(presu) estado.presupuesto = presu;
+
+  const hayUso = Object.keys(estado.usos).length > 0;
+
+  if(!hayUso && !estado.presupuesto){
+    return { txt:`<p>Para no mandarte cualquiera necesito saber dos cosas: <strong>qué vas a hacer</strong> con la compu y <strong>hasta cuánto</strong> querés gastar.</p>`,
+             sugs:["Estudiar y navegar","Trabajar con Excel y videollamadas","Jugar","Editar video y diseño"] };
+  }
+  if(!hayUso && estado.presupuesto){
+    return { txt:`<p>Con <strong>${usdF(estado.presupuesto)}</strong> (${ars(estado.presupuesto)}) hay opciones buenas. ¿Para qué la vas a usar principalmente?</p>`,
+             sugs:["Estudiar","Trabajar","Jugar","Diseño y video"] };
+  }
+
+  // vendedor honesto: el presupuesto no alcanza para NINGUNA que sirva de verdad
+  const candidatas = aptas(estado.usos).slice().sort((a,b)=>a.usd-b.usd);
+  const minima = candidatas[0];
+  if(estado.presupuesto && minima && minima.usd > estado.presupuesto * 1.12){
+    const falta = minima.usd - estado.presupuesto;
+    estado.ultimos = candidatas.slice(0,3);
+    return { txt:`<p>Te soy sincero: con <strong>${usdF(estado.presupuesto)}</strong> no llegás a lo que necesitás para eso. La más barata que te va a dejar conforme es la <strong>${minima.marca} ${minima.modelo}</strong>, y son <strong>${usdF(falta)}</strong> más.</p>
+             <p>Dos caminos: juntás la diferencia, o te llevás algo más económico sabiendo de entrada que vas a andar justo. Prefiero decírtelo ahora y no después.</p>`,
+             recs: estado.ultimos, sugs:["Mostrame igual las más baratas","Está bien, sumo la diferencia","Comparalas"] };
+  }
+
+  const ps = recomendar(estado.usos, estado.presupuesto);
+
+  const listaUsos = Object.keys(estado.usos).map(u=>({gaming:"jugar",diseno:"diseño y video",programacion:"programar",estudio:"la facultad",oficina:"trabajo de oficina",portabilidad:"llevarla a todos lados",basico:"uso cotidiano"}[u])).filter(Boolean);
+  const intro = `<p>Para <strong>${listaUsos.slice(0,2).join(" y ")}</strong>${estado.presupuesto?` con hasta <strong>${usdF(estado.presupuesto)}</strong>`:""}, te quedan estas tres. Las ordené por lo que yo compraría.</p>`;
+  estado.ultimos = ps;
+  return { txt:intro, recs:ps, sugs:["Compararlas","Algo más barato","¿Cuál me recomendás?","¿Sirve para Photoshop?"] };
+}
+
+/* ============================================================
+   6. CHAT UI
+   ============================================================ */
+const chatEl = $("#chat"), inp = $("#inp"), form = $("#form");
+
+function addMsg(role, html){
+  chatEl.classList.remove("empty");
+  const d = document.createElement("div");
+  d.className = "msg " + role;
+  d.innerHTML = `<div class="ava">${role==="bot"?"T":"VOS"}</div><div class="bubble">${html}</div>`;
+  chatEl.appendChild(d);
+  chatEl.scrollTop = chatEl.scrollHeight;
+  return d;
+}
+function addTyping(){
+  const d = addMsg("bot", `<div class="typing"><i></i><i></i><i></i></div>`);
+  d.dataset.typing = "1";
+  return d;
+}
+function sugerencias(arr){
+  if(!arr || !arr.length) return "";
+  return `<div class="sugs">${arr.map(s=>`<button class="sug" onclick="preguntar('${s.replace(/'/g,"\\'")}')">${s}</button>`).join("")}</div>`;
+}
+function animarBarras(scope){
+  scope.querySelectorAll(".bar i").forEach(b => setTimeout(()=>b.style.width = b.dataset.w + "%", 80));
+}
+
+function responder(texto){
+  const t = addTyping();
+  const delay = 420 + Math.random()*380;
+  setTimeout(()=>{
+    const r = pensar(texto);
+    let html = r.txt;
+    if(r.recs && r.recs.length) html += `<div class="recs">${r.recs.map((p,i)=>tarjeta(p, estado.usos, i, r.recs)).join("")}</div>`;
+    html += sugerencias(r.sugs);
+    t.querySelector(".bubble").innerHTML = html;
+    delete t.dataset.typing;
+    animarBarras(t);
+    chatEl.scrollTop = chatEl.scrollHeight;
+  }, delay);
+}
+
+function preguntar(txt){
+  addMsg("user", txt);
+  responder(txt);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const v = inp.value.trim();
+  if(!v) return;
+  inp.value = ""; inp.style.height = "auto";
+  preguntar(v);
+});
+inp.addEventListener("input", () => {
+  inp.style.height = "auto";
+  inp.style.height = Math.min(inp.scrollHeight, 110) + "px";
+});
+inp.addEventListener("keydown", e => {
+  if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); form.requestSubmit(); }
+});
+
+/* mensaje de bienvenida */
+setTimeout(()=>{
+  addMsg("bot", `<p>Hola 👋 Soy el asesor de Tecno Bai. Decime <strong>qué vas a hacer</strong> con la compu y <strong>cuánto querés gastar</strong>, y en 10 segundos te digo cuál comprar.</p>` +
+    sugerencias(["Para la facu, hasta 700 dólares","Para jugar, presupuesto 1.5 millones","Para editar video en Premiere","Una liviana para viajar"]));
+}, 500);
+
+/* ============================================================
+   7. CATÁLOGO
+   ============================================================ */
+const FILTROS = [
+  {k:"todo", n:"Todo"},
+  {k:"estudio", n:"Estudio"},
+  {k:"oficina", n:"Trabajo"},
+  {k:"gaming", n:"Gaming"},
+  {k:"diseno", n:"Diseño y video"},
+  {k:"portabilidad", n:"Livianas"},
+  {k:"accesorios", n:"Accesorios"},
+];
+let filtroActivo = "todo";
+
+function pintarFiltros(){
+  $("#filters").innerHTML = FILTROS.map(f =>
+    `<button class="filt ${f.k===filtroActivo?'on':''}" onclick="setFiltro('${f.k}')">${f.n}</button>`).join("");
+}
+function setFiltro(k){ filtroActivo = k; pintarFiltros(); pintarGrid(); }
+
+function pintarGrid(){
+  let lista = CATALOGO;
+  if(filtroActivo === "accesorios") lista = CATALOGO.filter(p=>p.accesorio);
+  else if(filtroActivo !== "todo") lista = CATALOGO.filter(p=>!p.accesorio && (p.perfil[filtroActivo]||0) >= 7).sort((a,b)=>(b.perfil[filtroActivo]||0)-(a.perfil[filtroActivo]||0) || a.usd-b.usd);
+  else lista = CATALOGO.filter(p=>!p.accesorio).concat(CATALOGO.filter(p=>p.accesorio));
+
+  $("#grid").innerHTML = lista.map(p => `
+    <article class="card" onclick="verProducto('${p.id}')">
+      ${p.destacado?'<span class="tag hot">Recomendada</span>':(p.stock<=2?'<span class="tag">Últimas unidades</span>':'')}
+      <div class="ph">${foto(p)}</div>
+      <div class="body">
+        <div class="brand">${p.marca}</div>
+        <h3>${p.modelo}</h3>
+        <p class="ln">${p.resumen}</p>
+        <div class="foot">
+          <div class="price">${ars(p.usd)}<small>${usdF(p.usd)}</small></div>
+          <button class="mini solid" onclick="event.stopPropagation();agregar('${p.id}',1,true)">Agregar</button>
+        </div>
+        <div class="stock ${p.stock<=3?'low':''}"><i></i> ${p.stock<=3?`Quedan ${p.stock}`:"En stock"}</div>
+      </div>
+    </article>`).join("");
+}
+
+/* ============================================================
+   8. MODAL DE PRODUCTO
+   ============================================================ */
+const TRAD = {
+  cpu:"El motor de la compu: cuánto puede hacer al mismo tiempo.",
+  gpu:"Lo que dibuja imágenes. Importa para juegos, video y 3D.",
+  ram:"Cuántas cosas podés tener abiertas sin que se trabe.",
+  ssd:"Espacio para tus archivos y qué tan rápido arranca todo.",
+  pantalla:"Tamaño y calidad de imagen.",
+  peso:"Cuánto vas a cargar si la movés seguido.",
+  bateria:"Cuánto aguanta desenchufada, en uso normal.",
+};
+
+function cambiarFoto(btn, src){
+  const img = $("#mMain img");
+  if(img) img.src = src;
+  document.querySelectorAll(".mt").forEach(b=>b.classList.toggle("on", b===btn));
+}
+
+function verProducto(id){
+  const p = prod(id);
+  const galeria = [p.img, ...(p.fotos||[])].filter(Boolean);
+  $("#modalIn").innerHTML = `
+    <div class="m-hero">
+      <div class="m-img">
+        <div class="m-main" id="mMain">${galeria.length
+          ? `<img class="pimg" src="${galeria[0]}" alt="${p.marca} ${p.modelo}" onerror="sinFoto(this,'${p.id}')">`
+          : laptop(p,"88%")}</div>
+        ${galeria.length>1 ? `<div class="m-thumbs">${galeria.map((g,i)=>
+          `<button class="mt ${i===0?'on':''}" onclick="cambiarFoto(this,'${g}')"><img src="${g}" alt=""></button>`).join("")}</div>` : ""}
+      </div>
+      <div class="m-side">
+        <div class="brand">${p.marca}</div>
+        <h3>${p.modelo}</h3>
+        <p style="color:var(--mut);font-size:14.4px;line-height:1.6">${p.resumen}</p>
+        <div class="m-price">${ars(p.usd)}<small>${usdF(p.usd)} · precio final con impuestos</small></div>
+        <div class="stock ${p.stock<=3?'low':''}"><i></i> ${p.stock<=3?`Quedan ${p.stock} unidades`:"En stock, entrega inmediata"}</div>
+        <div class="m-acts">
+          <button class="btn" onclick="agregar('${p.id}',1,true);cerrarTodo()">Agregar al pedido</button>
+          <button class="btn ghost" onclick="cerrarTodo()">Seguir mirando</button>
+        </div>
+      </div>
+    </div>
+    <div class="m-body">
+      <div class="m-sec">
+        <h4>Ficha técnica, en criollo</h4>
+        <div class="sp-grid">
+          ${["cpu","gpu","ram","ssd","pantalla","peso","bateria"].filter(k=>p[k]&&p[k]!=="—").map(k=>`
+            <div class="sp"><div class="k">${{cpu:"Procesador",gpu:"Placa de video",ram:"Memoria",ssd:"Almacenamiento",pantalla:"Pantalla",peso:"Peso",bateria:"Batería"}[k]}</div>
+            <div class="v">${p[k]}</div><div class="t">${TRAD[k]}</div></div>`).join("")}
+        </div>
+      </div>
+      ${p.accesorio?"":`
+      <div class="m-sec">
+        <h4>¿Te sirve para lo tuyo?</h4>
+        <p style="color:var(--mut);font-size:13.8px">Escribí el programa o el juego que vas a usar y te digo la verdad.</p>
+        <div class="ask">
+          <input id="askIn" placeholder="Ej: AutoCAD, Premiere, Valorant, Excel..." onkeydown="if(event.key==='Enter')chequear('${p.id}')">
+          <button onclick="chequear('${p.id}')">Consultar</button>
+        </div>
+        <div class="verdict" id="verdict"></div>
+      </div>
+      <div class="m-sec">
+        <h4>Se puede ampliar</h4>
+        <p style="color:var(--mut);font-size:14px;line-height:1.6">${p.upgrade}</p>
+      </div>`}
+      <div class="m-sec">
+        <h4>Incluye</h4>
+        <p style="color:var(--mut);font-size:14px;line-height:1.6">Garantía oficial de 12 meses · Factura A o B · Envío ${p.usd>=CONFIG.envioGratis?"<strong style='color:var(--ok)'>gratis</strong>":"a todo el país"} · Configuración inicial sin cargo si la querés lista para usar.</p>
+      </div>
+    </div>`;
+  $("#modal").classList.add("on");
+  $("#scrim").classList.add("on");
+  document.body.classList.add("no-scroll");
+}
+
+function chequear(id){
+  const p = prod(id);
+  const q = norm($("#askIn").value);
+  const v = $("#verdict");
+  if(!q) return;
+  const key = Object.keys(PROGRAMAS).sort((a,b)=>b.length-a.length).find(k => q.includes(k) || norm(k).includes(q));
+  if(!key){
+    v.className = "verdict on";
+    v.innerHTML = `No tengo ese programa medido. Escribinos por WhatsApp y te lo confirmamos en el momento — no queremos que compres a ciegas.`;
+    return;
+  }
+  const req = PROGRAMAS[key], d = p.potencia - req;
+  let msg;
+  if(d >= 3)      msg = `<b>Le sobra.</b> ${p.modelo} corre ${key} sin despeinarse. Te va a durar años haciendo eso.`;
+  else if(d >= 1) msg = `<b>Sí, muy bien.</b> ${p.modelo} mueve ${key} con comodidad en calidad alta.`;
+  else if(d === 0)msg = `<b>Sí, justo.</b> Corre ${key}, pero en configuración media. Si es tu uso principal, mirá el escalón de arriba.`;
+  else if(d === -1)msg= `<b>Andaría, pero justa.</b> Vas a tener que bajar calidad y aún así te va a molestar. Te conviene una con más potencia.`;
+  else            msg = `<b>No, te va a quedar corta.</b> Para ${key} necesitás bastante más. Prefiero decírtelo ahora que después del arrepentimiento.`;
+  v.className = "verdict on";
+  v.innerHTML = msg;
+}
+
+/* ============================================================
+   9. CARRITO
+   ============================================================ */
+let carrito = [];  // {id, q}
+
+function agregar(id, q=1, avisar=false){
+  const e = carrito.find(x=>x.id===id);
+  if(e) e.q += q; else carrito.push({id, q});
+  pintarCarrito();
+  if(avisar) abrirCarrito();
+}
+function quitar(id){ carrito = carrito.filter(x=>x.id!==id); pintarCarrito(); }
+function cambiar(id, d){
+  const e = carrito.find(x=>x.id===id); if(!e) return;
+  e.q += d; if(e.q < 1) return quitar(id);
+  pintarCarrito();
+}
+function totalUsd(){ return carrito.reduce((s,x)=> s + prod(x.id).usd * x.q, 0); }
+
+function pintarCarrito(){
+  const n = carrito.reduce((s,x)=>s+x.q,0);
+  $("#cc").textContent = n;
+  const body = $("#cartBody");
+  if(!carrito.length){
+    body.innerHTML = `<div class="empty-cart">Todavía no agregaste nada.<br><br>Preguntale al asesor qué te conviene y sumalo desde ahí.</div>`;
+  } else {
+    body.innerHTML = carrito.map(x=>{
+      const p = prod(x.id);
+      return `<div class="ci">
+        <div class="thumb">${foto(p)}</div>
+        <div style="flex:1;min-width:0">
+          <div class="nm">${p.marca} ${p.modelo}</div>
+          <div class="pr">${ars(p.usd)} · ${usdF(p.usd)}</div>
+          <div class="qty">
+            <button onclick="cambiar('${p.id}',-1)">−</button><span>${x.q}</span><button onclick="cambiar('${p.id}',1)">+</button>
+            <button class="rm" onclick="quitar('${p.id}')">Quitar</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+  }
+  const t = totalUsd();
+  $("#subUsd").textContent = usdF(t);
+  $("#subArs").textContent = ars(t);
+  $("#wspBtn").href = linkWsp();
+}
+
+function linkWsp(){
+  let m = `¡Hola ${CONFIG.marca}! Quiero hacer este pedido:\n\n`;
+  if(carrito.length){
+    carrito.forEach(x=>{
+      const p = prod(x.id);
+      m += `• ${x.q}x ${p.marca} ${p.modelo} — ${ars(p.usd*x.q)}\n`;
+    });
+    const t = totalUsd();
+    m += `\nTotal: ${ars(t)} (${usdF(t)})`;
+    m += t >= CONFIG.envioGratis ? `\nEnvío: gratis ✅` : ``;
+    m += `\n\n¿Qué formas de pago tienen y cuánto tarda la entrega?`;
+  } else {
+    m = `¡Hola ${CONFIG.marca}! Quería hacerles una consulta sobre notebooks.`;
+  }
+  return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(m)}`;
+}
+
+function abrirCarrito(){
+  $("#drawer").classList.add("on");
+  $("#scrim").classList.add("on");
+  document.body.classList.add("no-scroll");
+}
+function cerrarTodo(){
+  $("#drawer").classList.remove("on");
+  $("#modal").classList.remove("on");
+  $("#scrim").classList.remove("on");
+  document.body.classList.remove("no-scroll");
+}
+document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarTodo(); });
+$("#modal").addEventListener("click", e => { if(e.target.id === "modal") cerrarTodo(); });
+
+/* ============================================================
+   10. VARIOS
+   ============================================================ */
+/* ---- datos de contacto: solo se muestra lo que está cargado en CONFIG ---- */
+function pintarContacto(){
+  const c = [];
+  if(CONFIG.direccion){
+    const mapa = encodeURIComponent(`${CONFIG.direccion}, ${CONFIG.localidad}`);
+    c.push(`<div class="ccard">
+      <div class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="k">Dónde estamos</div>
+      <div class="v">${CONFIG.direccion}</div>
+      <div class="s">${CONFIG.localidad}</div>
+      <a class="lnk" href="https://www.google.com/maps/search/?api=1&query=${mapa}" target="_blank" rel="noopener">Cómo llegar →</a>
+    </div>`);
+  }
+  if(CONFIG.horario){
+    c.push(`<div class="ccard">
+      <div class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="k">Horario de atención</div>
+      <div class="v">${CONFIG.horario}</div>
+      <div class="s">Coordinamos el retiro o la entrega por WhatsApp antes de que vengas.</div>
+    </div>`);
+  }
+  const tel = CONFIG.whatsapp.replace(/^549?/, "");
+  /* el formato de los teléfonos argentinos cambia según el código de área
+     (11 lleva 8 dígitos locales, 2322 lleva 6), así que se escribe a mano en CONFIG */
+  const legible = CONFIG.telVisible || tel;
+  c.push(`<div class="ccard">
+    <div class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="#A78BFA"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></div>
+    <div class="k">Escribinos</div>
+    <div class="v">${legible}</div>
+    <div class="s">Te respondemos el mismo día.${CONFIG.email?` También por mail: ${CONFIG.email}`:""}</div>
+    <a class="lnk" href="${linkWsp()}" target="_blank" rel="noopener">Abrir WhatsApp →</a>
+  </div>`);
+  $("#contactoBox").innerHTML = c.join("");
+}
+
+$("#year").textContent = new Date().getFullYear();
+if(CONFIG.localidad) $("#footLoc").textContent = " · " + CONFIG.localidad;
+$("#wspDirecto").href = linkWsp();
+$("#wspFoot").href = linkWsp();
+$("#wspDirecto").target = "_blank";
+$("#wspFoot").target = "_blank";
+
+addEventListener("scroll", () => {
+  $("#hd").classList.toggle("stuck", scrollY > 12);
+}, {passive:true});
+
+pintarFiltros();
+pintarGrid();
+pintarCarrito();
+pintarContacto();
+</script>
+</body>
+</html>
