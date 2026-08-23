@@ -1,0 +1,33 @@
+FOTOS DE TECNO BAI — nombres de archivo exactos
+================================================
+Van en la carpeta:  tecno/img/  del repositorio
+Formato: .jpg  ·  800 a 1200 px de ancho  ·  menos de 200 KB  ·  fondo blanco
+
+aspirelite.jpg      Acer Aspire Lite 15
+hp245.jpg           HP 245 G10
+ideapad3.jpg        Lenovo IdeaPad Slim 3
+vivobook15.jpg      Asus Vivobook 15
+hp255.jpg           HP 255 G10
+inspiron15.jpg      Dell Inspiron 15
+nitrolite16.jpg     Acer Nitro Lite 16
+victus15.jpg        HP Victus 15
+zenbook14.jpg       Asus Zenbook 14 OLED
+nitrov15.jpg        Acer Nitro V 15
+tufa15.jpg          Asus TUF Gaming A15
+tuff15.jpg          Asus TUF Gaming F15
+loq15.jpg           Lenovo LOQ 15
+thinkpadt14.jpg     Lenovo ThinkPad T14
+macair13.jpg        Apple MacBook Air 13 M5
+macpro14.jpg        Apple MacBook Pro 14 M5
+predator16.jpg      Acer Predator Helios 16
+lg24.jpg            LG UltraGear 24GS60F 24"
+lg27.jpg            LG 27GS60F 27"
+
+NOTAS
+-----
+- El nombre tiene que ser EXACTO, en minusculas y sin acentos.
+- No hace falta tenerlas todas. Cada producto que tenga su foto la muestra;
+  el resto sigue con la ilustracion. Se pueden cargar de a poco.
+- Para subirlas: github.com/guerrero202602/tecnoagrobai/upload/main/tecno
+  Escribir  img/  en el campo del nombre de carpeta y arrastrar los archivos.
+- Todas con la misma proporcion y el producto centrado, o se nota en la grilla.
